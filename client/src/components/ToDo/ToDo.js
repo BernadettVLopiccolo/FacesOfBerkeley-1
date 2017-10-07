@@ -17,14 +17,9 @@ class ToDo extends React.Component {
       .then(function(response) {
         console.log(response.data[0].todo);
         console.log(response.data.length);
-        let todo = [];
-        // for (var i = response.data.length-1; i>=0; i--){
-        //   this.state.items.push(response.data[i].todo);
-        // }
-        console.log(this.state.items);
-        // this.setState({items: this.state.items});
-        // console.log(this.state.items);
-    })
+    });
+    console.log(this.state.items);
+
   }
   onChange = (event) => {
     this.setState({ term: event.target.value});
@@ -57,7 +52,7 @@ class ToDo extends React.Component {
       <div className="todoContainer">
         <form className="Todo" onSubmit={this.onSubmit}>
           <input placeholder=' add a task...' className="todoForm" value={this.state.term} onChange={this.onChange} />
-          <button className="addTodo">Add Task</button>
+          <button className="addTodo"><span>✍</span> </button>
         </form>
         <ToDoList items={this.state.items} removeTodo={this.removeTodo}/>
       </div>
